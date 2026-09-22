@@ -2,15 +2,40 @@
 html{transition:background-color .3s,color .3s}
 .profile-frame{width:260px;height:320px;overflow:hidden;position:relative;z-index:2;border:10px solid var(--paper);box-shadow:13px 16px 0 var(--orange);transform:rotate(-4deg);background:var(--dark)}
 .profile-frame img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-.code-card{display:none}
+.about-grid{grid-template-columns:280px 1fr 1fr;gap:55px;align-items:start}
+.about-profile{margin:0;position:relative;background:var(--dark);padding:8px 8px 0;transform:rotate(-2deg);box-shadow:9px 10px 0 var(--lime)}
+.about-profile img{width:100%;height:315px;display:block;object-fit:cover;object-position:center}
+.about-profile figcaption{padding:13px 5px 15px;color:#f5f4ec;font:700 10px 'DM Mono',monospace;letter-spacing:.06em}
+.about-profile figcaption span{display:block;color:#a8e98c;font-size:8px;margin-top:6px}
+.hero .eyebrow{display:flex;align-items:center;flex-wrap:wrap;column-gap:9px;row-gap:4px}
+.hero .eyebrow>span{margin-right:0}
+.hero-name{font:800 23px Manrope,Arial,sans-serif;letter-spacing:-.055em;color:var(--ink);line-height:1}
+.hero-role{width:100%;padding-left:17px;font:600 13px Manrope,Arial,sans-serif;letter-spacing:-.025em;color:var(--orange)}
+.code-card{display:block}
 .project-visual>img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}
 .project:hover .project-visual>img{transform:scale(1.04)}
+.contact-showcase{display:grid;grid-template-columns:1fr auto;gap:55px;align-items:end}
+.contact-note{max-width:500px;font-size:16px;line-height:1.7;color:var(--muted);margin:-8px 0 28px}
+.contact-actions{display:flex;align-items:center;gap:15px}
+.contact-email-button{border:0;cursor:pointer}
+.copy-email{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:14px 16px;font:700 12px Manrope,Arial,sans-serif;cursor:pointer;transition:border-color .2s ease,color .2s ease,transform .2s ease}
+.copy-email:hover,.copy-email:focus-visible{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+.availability-card{min-width:245px;padding:25px;background:var(--dark);color:#f5f4ec;position:relative;overflow:hidden;box-shadow:10px 10px 0 var(--lime)}
+.availability-card:after{content:"";position:absolute;width:160px;height:160px;right:-70px;bottom:-85px;border:1px solid rgba(217,255,80,.6);border-radius:50%}
+.availability-card p{margin:0 0 17px;font:10px 'DM Mono',monospace;letter-spacing:.12em;color:#a8e98c}
+.availability-card strong{display:block;font-size:21px;line-height:1.15;letter-spacing:-.05em;margin-bottom:26px}
+.availability-card small{font:10px 'DM Mono',monospace;color:#b7c1b9}
+.availability-pulse{display:block;position:absolute;right:21px;top:23px;width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(217,255,80,.7);animation:availability-pulse 1.8s infinite}
+@keyframes availability-pulse{70%{box-shadow:0 0 0 9px rgba(217,255,80,0)}100%{box-shadow:0 0 0 0 rgba(217,255,80,0)}}
+@media(max-width:720px){.contact-showcase{grid-template-columns:1fr;gap:35px}.availability-card{width:calc(100% - 10px)}.contact-actions{align-items:stretch;flex-direction:column}.contact-actions .button,.copy-email{justify-content:center}.contact-note{font-size:15px}}
 .social-links{display:flex;align-items:center;gap:10px}
 .contact-footer .social-link{width:31px;height:31px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--ink);transition:color .2s ease,border-color .2s ease,transform .2s ease}
 .contact-footer .social-link svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .contact-footer .social-link .social-fill{fill:currentColor;stroke:none}
 .contact-footer a.social-link:hover,.contact-footer a.social-link:focus-visible{color:var(--orange);border-color:var(--orange);transform:translateY(-2px)}
 .contact-footer .social-placeholder{opacity:.42;cursor:not-allowed}
+.footer-meta{display:flex;flex-direction:column;gap:6px}
+.footer-meta span:last-child{font-size:8px;letter-spacing:.03em}
 body,.site-header,.nav,.about,.skills,.contact,.text-link,.email,.contact-footer{transition:background-color .3s,color .3s,border-color .3s}
 .theme-toggle{margin-left:28px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:7px 9px;font:500 10px 'DM Mono',monospace;letter-spacing:.06em;cursor:pointer}
 .theme-toggle span:first-child{font-size:15px;vertical-align:-1px;margin-right:4px}
@@ -71,3 +96,4 @@ html[data-theme="dark"] .status-chip i{box-shadow:0 0 0 2px var(--paper)}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 .hero-path{display:none}
 }
+@media(max-width:720px){.about-grid{grid-template-columns:1fr;gap:32px}.about-profile{width:min(280px,calc(100% - 12px))}.about-profile img{height:340px}.contact-showcase{grid-template-columns:1fr;gap:35px}.availability-card{width:calc(100% - 10px)}.contact-actions{align-items:stretch;flex-direction:column}.contact-actions .button,.copy-email{justify-content:center}.contact-note{font-size:15px}}
