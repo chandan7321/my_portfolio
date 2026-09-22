@@ -24,6 +24,18 @@ const applyTheme = (theme) => {
 applyTheme(localStorage.getItem('portfolio-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
 themeToggle?.addEventListener('click', () => applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+const copyEmailButton = document.querySelector('.copy-email');
+copyEmailButton?.addEventListener('click', async () => {
+  const email = copyEmailButton.dataset.email;
+  try {
+    await navigator.clipboard.writeText(email);
+    copyEmailButton.querySelector('.copy-email-label').textContent = 'Copied!';
+    setTimeout(() => { copyEmailButton.querySelector('.copy-email-label').textContent = 'Copy email'; }, 1800);
+  } catch {
+    window.location.href = `mailto:${email}`;
+  }
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
